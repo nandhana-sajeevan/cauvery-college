@@ -287,7 +287,9 @@ async def get_course(code: str):
 
 @api.post("/courses", response_model=Course)
 async def create_course(data: CourseIn, _: dict = Depends(require_role("admin"))):
-    course = Course(**data.model_dump(), code=data.code.upper())
+    payload = data.model_dump()
+    payload["code"] = payload["code"].upper()
+    course = Course(**payload)
     doc = course.model_dump()
     doc["created_at"] = doc["created_at"].isoformat()
     await db.courses.insert_one(doc)
@@ -427,7 +429,9 @@ async def list_materials(course_code: Optional[str] = None):
 
 @api.post("/materials", response_model=Material)
 async def create_material(data: MaterialIn, user: dict = Depends(require_role("admin", "faculty"))):
-    m = Material(**data.model_dump(), uploaded_by=user["email"])
+    payload = data.model_dump(exclude={"uploaded_by"})
+    payload["uploaded_by"] = user["email"]
+    m = Material(**payload)
     doc = m.model_dump()
     doc["created_at"] = doc["created_at"].isoformat()
     doc["course_code"] = doc["course_code"].upper()

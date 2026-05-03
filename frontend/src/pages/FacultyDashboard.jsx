@@ -99,19 +99,26 @@ function Attendance() {
 function Materials() {
     const [list, setList] = useState([]);
     const [form, setForm] = useState({ title: "", course_code: "BCA", description: "", file_url: "" });
+    const [error, setError] = useState("");
     const load = () => api.get("/materials").then(r => setList(r.data));
     useEffect(() => { load(); }, []);
     const submit = async (e) => {
         e.preventDefault();
-        await api.post("/materials", form);
-        setForm({ title: "", course_code: "BCA", description: "", file_url: "" });
-        load();
+        setError("");
+        try {
+            await api.post("/materials", form);
+            setForm({ title: "", course_code: "BCA", description: "", file_url: "" });
+            load();
+        } catch (err) {
+            setError(err.response?.data?.detail || "Could not upload material");
+        }
     };
     const del = async (id) => { await api.delete(`/materials/${id}`); load(); };
     return (
         <div data-testid="faculty-materials">
             <h1 className="font-outfit font-black text-3xl text-primary mb-6">Study Materials</h1>
             <form onSubmit={submit} className="bg-white p-6 rounded-2xl border border-border grid md:grid-cols-2 gap-3 mb-6">
+                {error && <div className="md:col-span-2 p-3 rounded-lg bg-destructive/10 text-destructive text-xs">{String(error)}</div>}
                 <input placeholder="Title" required value={form.title} onChange={e => setForm({ ...form, title: e.target.value })} className="px-3 py-2 rounded-lg border border-border" />
                 <input placeholder="Course code (BCA/BBA/BCOM)" required value={form.course_code} onChange={e => setForm({ ...form, course_code: e.target.value })} className="px-3 py-2 rounded-lg border border-border" />
                 <input placeholder="File URL" required value={form.file_url} onChange={e => setForm({ ...form, file_url: e.target.value })} className="md:col-span-2 px-3 py-2 rounded-lg border border-border" />

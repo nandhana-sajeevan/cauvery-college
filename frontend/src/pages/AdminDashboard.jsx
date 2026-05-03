@@ -86,13 +86,19 @@ function UsersTab() {
 function CoursesTab() {
     const [list, setList] = useState([]);
     const [form, setForm] = useState({ code: "", name: "", duration: "3 Years", description: "", eligibility: "", fees: 0 });
+    const [error, setError] = useState("");
     const load = () => api.get("/courses").then(r => setList(r.data));
     useEffect(() => { load(); }, []);
     const submit = async (e) => {
         e.preventDefault();
-        await api.post("/courses", { ...form, fees: parseFloat(form.fees), syllabus: [], careers: [] });
-        setForm({ code: "", name: "", duration: "3 Years", description: "", eligibility: "", fees: 0 });
-        load();
+        setError("");
+        try {
+            await api.post("/courses", { ...form, fees: parseFloat(form.fees), syllabus: [], careers: [] });
+            setForm({ code: "", name: "", duration: "3 Years", description: "", eligibility: "", fees: 0 });
+            load();
+        } catch (err) {
+            setError(err.response?.data?.detail || "Could not create course");
+        }
     };
     const del = async (id) => { await api.delete(`/courses/${id}`); load(); };
     return (
@@ -101,6 +107,7 @@ function CoursesTab() {
             <div className="grid lg:grid-cols-3 gap-6">
                 <form onSubmit={submit} className="lg:col-span-1 bg-white p-6 rounded-2xl border border-border space-y-3">
                     <div className="font-bold text-primary">Add new course</div>
+                    {error && <div className="p-3 rounded-lg bg-destructive/10 text-destructive text-xs">{String(error)}</div>}
                     {["code", "name", "duration", "description", "eligibility"].map(k => (
                         <input key={k} placeholder={k} required value={form[k]} onChange={e => setForm({ ...form, [k]: e.target.value })}
                             className="w-full px-3 py-2 rounded-lg border border-border" data-testid={`new-course-${k}`} />
