@@ -1,0 +1,119 @@
+{
+  "theme": "light",
+  "archetype": "Jewel & Luxury + Swiss High-Contrast",
+  "colors": {
+    "primary": "#0A2540",
+    "secondary": "#D4AF37",
+    "accent_light": "#FFFFFF",
+    "accent_gray": "#F3F4F6",
+    "background_light": "#F8FAFC",
+    "background_dark": "#020617",
+    "text_dark": "#0F172A",
+    "text_light": "#F8FAFC",
+    "muted": "#64748B",
+    "tailwind_config_instructions": "Add these colors to tailwind.config.js under theme.extend.colors: primary: { DEFAULT: '#0A2540', foreground: '#FFFFFF' }, secondary: { DEFAULT: '#D4AF37', foreground: '#0A2540' }, card: { DEFAULT: '#FFFFFF', foreground: '#0F172A' }, background: '#F8FAFC'."
+  },
+  "typography": {
+    "headings": "Outfit",
+    "body": "Manrope",
+    "heading_classes": "font-outfit tracking-tight text-primary",
+    "body_classes": "font-manrope leading-relaxed",
+    "h1_max": "text-5xl lg:text-6xl font-black",
+    "h2_max": "text-3xl lg:text-4xl font-bold",
+    "h3_max": "text-2xl font-bold",
+    "google_fonts_imports": "@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Outfit:wght@300;400;500;700;900&display=swap');"
+  },
+  "spacing_and_layout": {
+    "section_padding": "py-20 lg:py-32",
+    "container_padding": "px-6 lg:px-12 max-w-7xl mx-auto",
+    "gap_large": "gap-12 lg:gap-16",
+    "gap_medium": "gap-8",
+    "bento_grid": "grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-8",
+    "border_radius": "rounded-xl lg:rounded-2xl"
+  },
+  "visual_enhancers": {
+    "glassmorphism_light": "backdrop-blur-xl bg-white/75 border border-white/40 shadow-[0_8px_32px_rgba(10,37,64,0.08)]",
+    "glassmorphism_dark": "backdrop-blur-xl bg-[#0A2540]/80 border border-white/10 shadow-2xl",
+    "card_hover": "transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:border-secondary/50",
+    "hero_overlay": "bg-gradient-to-r from-[#0A2540]/90 via-[#0A2540]/60 to-transparent",
+    "button_primary": "bg-secondary text-[#0A2540] font-bold hover:bg-secondary/90 transition-colors shadow-lg hover:shadow-secondary/20",
+    "button_outline": "border-2 border-secondary text-secondary hover:bg-secondary hover:text-[#0A2540] transition-colors"
+  },
+  "motion": {
+    "page_transition": "Use framer-motion AnimatePresence and motion.div for page transitions (opacity and slight y-axis translate).",
+    "scroll_reveal": "Use framer-motion whileInView for scroll reveals.",
+    "stagger_children": "Use framer-motion variants with staggerChildren.",
+    "loading": "Use Shadcn skeleton components for loading states."
+  },
+  "media": {
+    "logo": {
+      "url": "https://images.unsplash.com/photo-1747479024835-dc26916d2c9e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODB8MHwxfHNlYXJjaHwxfHx1bml2ZXJzaXR5JTIwY3Jlc3QlMjBsb2dvJTIwYmx1ZSUyMGdvbGQlMjBiYWNrZ3JvdW5kfGVufDB8fHx8MTc3Nzc4Nzg2MXww&ixlib=rb-4.1.0&q=85",
+      "description": "University Crest Logo alternative or use as placeholder for CCAUVERY."
+    },
+    "hero_backgrounds": [
+      {
+        "url": "https://images.pexels.com/photos/27238168/pexels-photo-27238168.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "description": "Modern campus building exterior, high quality."
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1734184489462-e8c123f2797b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NzR8MHwxfHNlYXJjaHwxfHx1bml2ZXJzaXR5JTIwY2FtcHVzJTIwYnVpbGRpbmclMjBnb2xkZW4lMjBob3VyfGVufDB8fHx8MTc3Nzc4Nzg0OHww&ixlib=rb-4.1.0&q=85",
+        "description": "Red brick campus building golden hour."
+      }
+    ],
+    "abstract_textures": [
+      {
+        "url": "https://images.pexels.com/photos/5506217/pexels-photo-5506217.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "description": "Dark blue and gold fluid ink texture for premium section backgrounds like CTAs."
+      }
+    ],
+    "students_campus": [
+      {
+        "url": "https://images.unsplash.com/photo-1758270705641-acf09b68a91f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODh8MHwxfHNlYXJjaHwxfHxkaXZlcnNlJTIwY29sbGVnZSUyMHN0dWRlbnRzJTIwY2FtcHVzJTIwc3R1ZHlpbmclMjBmcmllbmRzfGVufDB8fHx8MTc3Nzc4Nzg0OHww&ixlib=rb-4.1.0&q=85",
+        "description": "Diverse college students smiling"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1551801746-ce367c4c5d91?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODh8MHwxfHNlYXJjaHw0fHxkaXZlcnNlJTIwY29sbGVnZSUyMHN0dWRlbnRzJTIwY2FtcHVzJTIwc3R1ZHlpbmclMjBmcmllbmRzfGVufDB8fHx8MTc3Nzc4Nzg0OHww&ixlib=rb-4.1.0&q=85",
+        "description": "Group of students on campus"
+      }
+    ],
+    "faculty_portraits": [
+      {
+        "url": "https://images.unsplash.com/photo-1573497491306-c8a68afac6f2?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzd8MHwxfHNlYXJjaHwxfHxidXNpbmVzcyUyMHByb2Zlc3Npb25hbHMlMjBkaXZlcnNlfGVufDB8fHx8MTc3Nzc4Nzg2Nnww&ixlib=rb-4.1.0&q=85",
+        "description": "Professional woman, faculty member"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1573497161161-c3e73707e25c?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzd8MHwxfHNlYXJjaHwyfHxidXNpbmVzcyUyMHByb2Zlc3Npb25hbHMlMjBkaXZlcnNlfGVufDB8fHx8MTc3Nzc4Nzg2Nnww&ixlib=rb-4.1.0&q=85",
+        "description": "Smiling professional woman"
+      }
+    ]
+  },
+  "component_instructions": {
+    "marketing_pages": "Use pure HTML/Tailwind for layouts. Implement aggressive asymmetry. Do NOT rely heavily on Shadcn Card for marketing pages. Overlap elements to create depth. Use the provided abstract textures in background layers with low opacity.",
+    "forms_and_modals": "Use Shadcn UI. Customize them to fit the premium look (replace generic focus rings with primary #0A2540 or secondary #D4AF37 colors).",
+    "dashboards": "Use Shadcn UI comprehensively. Implement the 'Control Room' bento grid. Make sure sidebar is Dark Blue with Gold for active states. Dashboard content area must have a light gray/slate-50 background.",
+    "icons": "Use lucide-react.",
+    "charts": "Use Shadcn/Recharts for Admin/Faculty dashboards."
+  },
+  "specific_page_guidelines": {
+    "homepage": {
+      "hero": "Must have min-h-[90vh] with the modern campus image in background. Apply the hero_overlay. H1 text in White, Tagline in Gold. Primary CTA (Apply Now) in Gold, Secondary (Explore Courses) as Outline.",
+      "stats": "Use 'react-countup' wrapped in a framer-motion div. Place these stats in glassmorphism containers overlapping the bottom edge of the hero section.",
+      "courses": "Grid of BBA, BCA, BCom programs. Highlight career outcomes. Use card_hover animation.",
+      "testimonials": "Use Shadcn Carousel. Style items with glassmorphism_light.",
+      "news_events": "Create an 'Editorial Ribbon' or dense grid layout for recent college news."
+    },
+    "about_page": {
+      "layout": "Asymmetric Tetris grid for History, Vision, Mission. Feature Principal's message with a large portrait on the left and typography-heavy quote on the right."
+    },
+    "admissions": {
+      "form": "Multi-step Shadcn form. Clean, distraction-free environment. White container on light gray background."
+    },
+    "dashboards": {
+      "structure": "Sidebar with Logo and Navigation. Top header with User Profile and Dark Mode toggle. Dense data visualization for Admin (Enrollments, Revenue). Simple quick-actions for Students (Fees, Grades, Timetable)."
+    }
+  },
+  "accessibility_and_testing": {
+    "contrast": "Ensure text over images uses text-shadow or heavy gradient underlays. Test contrast of Gold text on White (might need to darken Gold slightly for text, or use on dark backgrounds only).",
+    "testing": "All interactive and key informational elements MUST include a data-testid attribute in kebab-case."
+  }
+}
