@@ -2,6 +2,7 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { Menu, X, GraduationCap, LogOut, LayoutDashboard } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
+import { getDashboardPath } from "@/lib/auth-utils";
 
 const links = [
     { to: "/", label: "Home" },
@@ -19,7 +20,7 @@ export default function Navbar() {
     const { user, logout } = useAuth();
     const navigate = useNavigate();
 
-    const dashboardPath = user?.role === "admin" ? "/admin" : user?.role === "faculty" ? "/faculty-dashboard" : "/student-dashboard";
+    const dashboardPath = getDashboardPath(user?.role);
 
     return (
         <header className="fixed top-0 inset-x-0 z-50 glass-light" data-testid="navbar">

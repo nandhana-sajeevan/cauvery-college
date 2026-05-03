@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { formatApiError } from "@/lib/api";
+import { getDashboardPath } from "@/lib/auth-utils";
 import { GraduationCap, ArrowRight } from "lucide-react";
 
 export default function Login() {
@@ -12,8 +13,7 @@ export default function Login() {
     const navigate = useNavigate();
 
     if (user) {
-        const path = user.role === "admin" ? "/admin" : user.role === "faculty" ? "/faculty-dashboard" : "/student-dashboard";
-        return <Navigate to={path} replace />;
+        return <Navigate to={getDashboardPath(user.role)} replace />;
     }
 
     const submit = async (e) => {
@@ -21,8 +21,7 @@ export default function Login() {
         setError(""); setBusy(true);
         try {
             const u = await login(form.email, form.password);
-            const path = u.role === "admin" ? "/admin" : u.role === "faculty" ? "/faculty-dashboard" : "/student-dashboard";
-            navigate(path);
+            navigate(getDashboardPath(u.role));
         } catch (err) {
             setError(formatApiError(err.response?.data?.detail) || "Login failed");
         } finally { setBusy(false); }

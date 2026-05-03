@@ -170,6 +170,14 @@ function AdmissionsTab() {
         await api.patch(`/admissions/${id}?status_value=${status}`);
         load();
     };
+    const statusBadge = (status) => {
+        const map = {
+            accepted: "bg-emerald-100 text-emerald-700",
+            rejected: "bg-red-100 text-red-700",
+            pending: "bg-amber-100 text-amber-700",
+        };
+        return <span className={`px-2 py-1 rounded-full text-xs font-bold uppercase ${map[status] || map.pending}`}>{status}</span>;
+    };
     return (
         <div data-testid="admin-admissions">
             <Header title="Admission Applications" />
@@ -178,7 +186,7 @@ function AdmissionsTab() {
                     rows={list.map(a => [
                         <div><div className="font-medium">{a.full_name}</div><div className="text-xs text-muted-foreground">{a.email}</div></div>,
                         a.course_code, `${a.marks}%`,
-                        <span className={`px-2 py-1 rounded-full text-xs font-bold uppercase ${a.status === "accepted" ? "bg-emerald-100 text-emerald-700" : a.status === "rejected" ? "bg-red-100 text-red-700" : "bg-amber-100 text-amber-700"}`}>{a.status}</span>,
+                        statusBadge(a.status),
                         <div className="flex gap-2">
                             <button onClick={() => updateStatus(a.id, "accepted")} className="text-xs text-emerald-700 hover:underline">Accept</button>
                             <button onClick={() => updateStatus(a.id, "rejected")} className="text-xs text-red-700 hover:underline">Reject</button>

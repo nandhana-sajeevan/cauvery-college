@@ -1,4 +1,4 @@
-"""CCAUVERY Backend API Tests - JWT Auth + CRUD + RBAC"""
+"""CAUVERY Backend API Tests - JWT Auth + CRUD + RBAC"""
 import os
 import uuid
 import pytest

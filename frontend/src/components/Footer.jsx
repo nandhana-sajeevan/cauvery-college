@@ -48,7 +48,7 @@ export default function Footer() {
                         ))}
                     </div>
                     <p className="text-xs text-white/50 mt-6 leading-relaxed">
-                        Affiliated to Mangalore University.<br />Recognized by UGC under 2(f) & 12(B).
+                        Affiliated to Ko University.<br />Recognized by UGC under 2(f) & 12(B).
                     </p>
                 </div>
             </div>
